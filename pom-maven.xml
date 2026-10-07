@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>io.github.eduardokuhn89</groupId>
+    <artifactId>bolix-client</artifactId>
+    <version>1.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>Boleto Client</name>
+    <description>Cliente Java para emissão de boletos híbridos (Boleto + PIX)</description>
+    <url>https://github.com/EduardoKuhn89/bolix</url>
+    <inceptionYear>2026</inceptionYear>
+    
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <id>EduardoKuhn89</id>
+            <name>Eduardo Kuhn</name>            
+            <url>https://github.com/EduardoKuhn89</url>
+            <roles>
+                <role>developer</role>
+            </roles>            
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>scm:git:git://github.com/EduardoKuhn89/bolix.git</connection>
+        <developerConnection>scm:git:ssh://github.com:EduardoKuhn89/bolix.git</developerConnection>
+        <url>https://github.com/EduardoKuhn89/bolix/tree/main</url>
+    </scm>
+    
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/EduardoKuhn89/bolix/issues</url>
+    </issueManagement>
+    
+    <properties>        
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<jackson.version>2.15.2</jackson.version>
+        
+        <maven-compiler.version>3.14.0</maven-compiler.version>
+        <central-publishing-maven.version>0.8.0</central-publishing-maven.version>
+        <maven-gpg.version>3.2.8</maven-gpg.version>        
+        <maven-source.version>3.3.1</maven-source.version>
+        <maven-javadoc.version>3.11.2</maven-javadoc.version>        
+    </properties>
+    
+    <dependencies>        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler.version}</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${maven-gpg.version}</version>
+                <configuration>
+                    <executable>C:/Program Files/Git/usr/bin/gpg.exe</executable>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcprov-jdk18on</artifactId>
+                        <version>1.78</version> 
+                    </dependency>
+                    <dependency>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcpg-jdk18on</artifactId>
+                        <version>1.78</version> 
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <additionalOptions>-html5</additionalOptions>
+                    <failOnError>false</failOnError>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central-publishing-maven.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>ossrh</publishingServerId> 
+                    <autoPublish>true</autoPublish>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
+    
+
+</project>

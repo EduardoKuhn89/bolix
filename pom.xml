@@ -2,12 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.com.cobranca</groupId>
-    <artifactId>bolix</artifactId>
-    <version>1.0.1</version>    
+    <groupId>io.github.eduardokuhn89</groupId>
+    <artifactId>bolix-client</artifactId>
+    <version>1.0.1</version>
+    <packaging>jar</packaging>
     
-    <name>bolix</name>
-    <description>Biblioteca para cadastro de boletos hibridos</description>
+    <groupId>io.github.eduardokuhn89</groupId>
+    <artifactId>bolix-client</artifactId>
+    <version>1.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>Boleto Client</name>
+    <description>Cliente Java para emissão de boletos híbridos (Boleto + PIX)</description>
+    <url>https://github.com/EduardoKuhn89/bolix</url>
+    <inceptionYear>2026</inceptionYear>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
