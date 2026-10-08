@@ -1,12 +1,10 @@
 # ⚡ Bolix - Boleto Híbrido - Cliente Java
 
-Cliente Java moderno, leve e fluido para integração e processamento de documentos de cobrança (Boleto + Pix / Bolix), projetado para simplificar a comunicação com APIs de pagamento de forma direta e sem burocracia excessiva.
+Cliente Java moderno, leve e fluido para integração e processamento de documentos de cobrança (Boleto + Pix / Bolix), projetado para simplificar a comunicação com APIs de pagamento de forma direta.
 
 ---
 
 ## 📦 Instalação
-
-Adicione a dependência no seu gerenciador de pacotes favorito.
 
 ### Maven
 ```xml
