@@ -10,8 +10,7 @@ Cliente Java moderno, leve e fluido para integração e processamento de documen
 
 ## 📦 Instalação
 
-### Maven
-```xml
+## Maven
 <dependency>
     <groupId>com.github.eduardokuhn89</groupId>
     <artifactId>bolix</artifactId>
