@@ -13,9 +13,9 @@ Cliente Java moderno, leve e fluido para integração e processamento de documen
 ## ✨ Repositório
 
          <dependency>
-            <groupId>com.github.eduardokuhn89</groupId>
-            <artifactId>bolix</artifactId>
-            <version>1.0.1</version>
+             <groupId>io.github.eduardokuhn89</groupId>
+             <artifactId>bolix-client</artifactId>
+             <version>1.0.1</version>             
          </dependency>
 
 ## ✨ Exemplo de uso
