@@ -49,18 +49,6 @@ Cliente Java moderno, leve e fluido para integração e processamento de documen
                  .aceite(false)
                  .pagador(pagador);
          
-         if (new BigDecimal("15.00").compareTo(BigDecimal.ZERO) > 0) {
-             boletoBuilder.comJurosValorDiario(new BigDecimal("15.00"), LocalDate.of(2026, 10, 8).plusDays(1));
-         }
-         
-         if (new BigDecimal("30.00").compareTo(BigDecimal.ZERO) > 0) {
-             boletoBuilder.comMultaValor(new BigDecimal("30.00"), LocalDate.of(2026, 10, 8).plusDays(1));
-         }
-         
-         if (new BigDecimal("100.00") != null && LocalDate.of(2026, 10, 1) != null) {
-             boletoBuilder.comDescontoValor(new BigDecimal("100.00"), LocalDate.of(2026, 10, 1));
-         }
-         
          Stream.of(
                  "Instrução de exemplo 1",
                  "Instrução de exemplo 2",
